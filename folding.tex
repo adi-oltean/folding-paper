@@ -19,7 +19,7 @@
 \usepackage{hyperref}
 \hypersetup{colorlinks=true,linkcolor=black,urlcolor=black,citecolor=black}
 
-\newcommand{\paperversion}{16}
+\newcommand{\paperversion}{17}
 
 \title{Folding: Recovering Precision in Interval-Based Static Analysis}
 \author{Adi Oltean \\ \texttt{adi@starcloud.com}\thanks{This document was prepared with
@@ -48,7 +48,8 @@ abstract-interpretation literature.
 
 \section{Motivation}\footnote{\textbf{Artifact.} Source, evaluation and proofs are in
 the public repository \url{https://github.com/adi-oltean/folding-paper}; reproduce with
-\texttt{python3 eval/run.py --check}. The theorems of \S\ref{sec:exactness} are
+\texttt{python3 eval/run.py --check}. Cite as
+\url{https://doi.org/10.5281/zenodo.22035920}. The theorems of \S\ref{sec:exactness} are
 discharged by exhaustive enumeration at finite widths in \texttt{eval/proof/} and
 mechanized in Lean in \texttt{proof-lean/} (sorry-free, no external dependencies).
 Coverage is deliberately uneven by design --- most theorems are Lean-proved for all

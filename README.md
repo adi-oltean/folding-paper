@@ -6,7 +6,10 @@ scattered, with dead bands between them that any convex approximation must inclu
 folding applies a change of variables so the reachable set becomes compact and a simple
 domain represents it exactly.
 
-**Status: draft. Not yet released.**
+**Published:** [10.5281/zenodo.22035920](https://doi.org/10.5281/zenodo.22035920)
+
+> Adi Oltean. *Folding: Recovering Precision in Interval-Based Static Analysis.* 2026.
+> DOI: [10.5281/zenodo.22035920](https://doi.org/10.5281/zenodo.22035920).
 
 | Path | What |
 |---|---|
