@@ -1,0 +1,11 @@
+*.aux
+*.log
+*.out
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+__pycache__/
+*.pyc
+.lake/
+extracted.txt
+eval/ai-fold/out/

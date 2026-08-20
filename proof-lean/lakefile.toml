@@ -1,0 +1,9 @@
+# Minimal-dependency Lean 4 project: core Lean only (no Mathlib, no Batteries).
+# Everything proven here is elementary arithmetic / order theory, dischargeable
+# with `omega`, `decide` and core `Int`/`Nat` lemmas.
+name = "FoldingProofs"
+version = "0.1.0"
+defaultTargets = ["FoldingProofs"]
+
+[[lean_lib]]
+name = "FoldingProofs"

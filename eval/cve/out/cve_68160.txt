@@ -1,0 +1,42 @@
+====================================================================================================
+E1 -- CVE-2025-68160 (linebuffer_write, crypto/bio/bf_lbuf.c) -- folding precision
+reproduce with:  python3 eval/cve/cve_68160.py   (deterministic; no clock, no rand)
+====================================================================================================
+
+Program: linebuffer_write_68160_prefix (CVE-2025-68160 linebuffer_write, pre-fix, one buffering pass)
+CAP=16  MAXCHUNK=24  width=16 bits
+
+TABLE  site, baseline verdict, with-fold verdict, is-it-the-bug, concrete violations
+  site      description                                                BASE      FOLD      bug?   #conc.viol
+  ----------------------------------------------------------------------------------------------------
+  chk_site1 SITE1  fill2 <= cap   (bf_lbuf.c:143-144, memcpy, llen)    FAIL      PROVEN    no     0     
+  chk_site2 SITE2  fill2 <= cap   (bf_lbuf.c:148-149, memcpy, i)       FAIL      PROVEN    no     0     
+  chk_site3 SITE3  fill_final<=cap (bf_lbuf.c:193-197, memcpy, inl --  FAIL      FAIL      YES    2432  
+
+Interval widths at the check site (base -> fold):
+  chk_site1 SITE1  fill2 <= cap   (bf_lbuf.c:143-144, memcpy, llen)    width    33 ->    17
+  chk_site2 SITE2  fill2 <= cap   (bf_lbuf.c:148-149, memcpy, i)       width    33 ->    17
+  chk_site3 SITE3  fill_final<=cap (bf_lbuf.c:193-197, memcpy, inl --  width    57 ->    41
+
+SELF-CHECK -- concrete witness for the true bug (SITE3):
+  concrete inputs:  fill(entry obuf_len)=0  chunk(inl)=17  drained(BIO_write ret)=0
+  derived:          remaining=16  to_copy=16  fill2=16  chunk2(leftover)=1  fill3=16  fill_final=17  (cap=16)
+  reading: the buffer starts 0/16 full; this call asks to write 17 bytes; the in-loop clamp correctly fills the buffer to exactly capacity (16) and leaves 1 bytes not yet buffered; BIO_write to the next filter returns 0 (a short write, RFC-legal); the trailing fallback then unconditionally appends the leftover 1 bytes starting at offset 16, landing at fill_final=17 > cap=16 -- the real CVE-2025-68160 overflow, reproduced as a concrete violating execution in this model.
+
+Concrete state-space size: 25 reachable-pc buckets, budget exhausted=False
+
+SOUNDNESS -- does the with-fold abstract state still CONTAIN every concretely reachable valuation at every program point? (the critical check: did the R1 fact injection introduce unsoundness, or is it a valid consequence of the code)
+  baseline soundness violations:  0
+  with-fold soundness violations: 0
+
+HEADLINE
+  baseline false positives (safe sites alarming):   2/2
+  with-fold false positives (safe sites alarming):  0/2
+  true alarm (SITE3) present in baseline:            True
+  true alarm (SITE3) survives the fold:              True
+  => POSITIVE RESULT: the fold silences every false positive in the loop while
+     the true alarm at the real CVE-2025-68160 site is unaffected -- the
+     precision thesis, measured on real (pre-fix, source-cited) CVE code.
+
+All harness expectations hold.
+

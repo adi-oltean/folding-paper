@@ -1,0 +1,53 @@
+====================================================================================================
+E2 -- EXACT FOLDS ARE SELF-WITNESSING
+reproduce with:  python3 eval/witness/witness.py   (deterministic; no clock, no randomness)
+====================================================================================================
+
+TABLE 1  Exact-fold witnesses (the WITH-FOLD side)
+
+  pattern 1 -- affine IV
+    mutation:                array length 20 -> 19; a[19] is then out of bounds.
+    fold variable:           i   (checked variable: t)
+    fold interval matches the TRUE reachable hull (zero dead-band, E0 TABLE 2): True
+    folded coordinate failing value:   18
+    inverted concrete input:           j=9 (trip index), i=s*j+c0=18
+    checked value at failure:          19
+    concrete interpreter: input reachable? True   violates check? True 
+
+  pattern 13 -- ZigZag transport
+    mutation:                buffer length 255 -> 254; z = 254 is reachable.
+    fold variable:           z (= 2x)   (checked variable: z)
+    fold interval matches the TRUE reachable hull (zero dead-band, E0 TABLE 2): True
+    folded coordinate failing value:   254
+    inverted concrete input:           x=127
+    checked value at failure:          254
+    concrete interpreter: input reachable? True   violates check? True 
+
+  pattern 16 -- lockstep elimination
+    mutation:                array length 8 -> 7; p = 7 is reachable.
+    fold variable:           p (= i)   (checked variable: p)
+    fold interval matches the TRUE reachable hull (zero dead-band, E0 TABLE 2): True
+    folded coordinate failing value:   7
+    inverted concrete input:           i=7
+    checked value at failure:          7
+    concrete interpreter: input reachable? True   violates check? True 
+
+TABLE 2  Contrast -- the SAME mutant, baseline (no-fact) alarm, same inversion recipe
+         An over-approximate alarm alone is not a witness; only the exact fold
+         makes the inversion trustworthy.  (design doc: "alarm-without-witness")
+
+  pattern                      verdict   interval         exact?     witness?  note
+  ---------------------------------------------------------------------------------
+  pattern 1 -- affine IV       FAIL      (0, 19)          False      False     baseline interval is not exact -- invert
+  pattern 13 -- ZigZag transpo FAIL      (0, 65535)       False      False     z_fail=65535 is odd -- no x inverts it (
+  pattern 16 -- lockstep elimi FAIL      (0, 4294967295)  False      False     baseline interval is not exact -- invert
+
+SUMMARY
+
+  exact-fold witnesses confirmed by the concrete interpreter: 3/3
+  contrast cases where the baseline alarms but yields NO witness: 3/3
+
+All 3 exact-fold cases: inversion reproduced a confirmed concrete violation, and
+the same inversion applied to the baseline (no-fact) alarm on the same mutant
+produced no witness in every case.
+

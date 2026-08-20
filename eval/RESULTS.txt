@@ -1,0 +1,199 @@
+====================================================================================================
+FOLDING -- EVALUATION HARNESS OUTPUT
+reproduce with:  python3 eval/run.py        (deterministic; no clock, no randomness)
+====================================================================================================
+
+TABLE 1  Per-pattern verdicts, interval width at the check site, widening steps
+         (one canonical program per catalogue pattern; the fact injected is exactly
+          the fact the pattern supplies, at the point its validity condition holds)
+
+  #  axis      program                                          no fact  with fact  mutant   width(no)  width(with)  ratio      widen  widen
+                                                                (base)   (fact)     (fact)   (base)     (fact)       with/no    (base) (fact)
+  ------------------------------------------------------------------------------------------------------------------------------------------
+  1  time      affine IV (i += 2, a[i+1], len 20)               FAIL     PROVEN     FAIL     20         19           0.950000   5      6     
+  2  time      while-!= IV (i != 20, i += 4)                    FAIL     PROVEN     FAIL     4.29e9     17           3.96e-09   3      4     
+  3  time      geometric IV (uint8: m = 1; m; m <<= 1)          FAIL     PROVEN     FAIL     256        8            0.031250   9      7     
+  4  time      polynomial accumulator (s += i, 16 iters)        FAIL     PROVEN     FAIL     4.29e9     121          2.82e-08   9      9     
+  5  space     struct field factoring (4 x 8B, field at +4)     FAIL     PROVEN     FAIL     32         25           0.781250   3      4     
+  6  space     stride-union convexification (3x16B, f 0/4/8)    FAIL     PROVEN     FAIL     59         41           0.694915   15     15    
+  7  space     residue partition (pair buf[j], buf[j+1])        FAIL     PROVEN     FAIL     16         15           0.937500   25     19    
+  8  value     bitfield decomposition (h = (a4<<8)|b8)          FAIL     PROVEN     FAIL     65536      4096         0.062500   0      0     
+  9  value     modular arithmetic (r = x - 16*(x/16))           FAIL     PROVEN     FAIL     65536      16           0.000244   0      0     
+  10 value     bit-slice range (t = (x >> 4) & 0x3F)            FAIL     PROVEN     FAIL     65536      64           0.000977   0      0     
+  11 value     monotone mask accumulation (f |= bit)            FAIL     PROVEN     FAIL     65536      16           0.000244   7      7     
+  12 value     two-sided clamp ((unsigned)(v-100) <= 100)       FAIL     PROVEN     FAIL     1001       101          0.100899   0      0     
+  13 value     bijective transport (8-bit ZigZag, x >= 0)       FAIL     PROVEN     FAIL     65536      255          0.003891   0      0     
+  14 control   sparse-state rank (state in {1,4,16})            FAIL     PROVEN     FAIL     15         4            0.266667   8      7     
+  15 relation  conditional variable splitting (d = y - x)       FAIL     PROVEN     FAIL     65536      101          0.001541   0      0     
+  16 relation  lockstep elimination (p++ with i++, len 8)       FAIL     PROVEN     FAIL     4.29e9     8            1.86e-09   9      7     
+
+TABLE 2  Swept dead-band fractions: closed form vs. enumeration
+         |S| is the exact reachable set at the point, enumerated by the concrete
+         interpreter.  DBF(hull) uses the tightest interval hull (the design's
+         literal definition); DBF(denom) uses the denominator the pattern's closed
+         form is a closed form for, named in the last column.
+
+  pattern 1/2 -- affine induction variable   (parameter: s)
+     param            |S|        hull         DBF(hull)    DBF(denom)   closed form match  verdicts  denominator
+     -----------------------------------------------------------------------------------------------------------
+     s=2              8          15           0.466667     0.500000     0.500000    YES    FAIL->PROV interval held without the fact (measured)
+     s=4              8          29           0.724138     0.750000     0.750000    YES    FAIL->PROV interval held without the fact (measured)
+     s=8              8          57           0.859649     0.875000     0.875000    YES    FAIL->PROV interval held without the fact (measured)
+     s=16             8          113          0.929204     0.937500     0.937500    YES    FAIL->PROV interval held without the fact (measured)
+     s=64             8          449          0.982183     0.984375     0.984375    YES    FAIL->PROV interval held without the fact (measured)
+     note: the design's (s-1)/s is a closed form for the DBF(denom) column -- the interval the analysis
+           holds without the fact, [0,N-1].  Against the tightest hull [0,s(m-1)] the fraction is 1 -
+           m/(s(m-1)+1) (printed), which tends to (s-1)/s as the trip count m grows; here m = 8.
+
+  pattern 3 -- geometric induction variable   (parameter: w)
+     param            |S|        hull         DBF(hull)    DBF(denom)   closed form match  verdicts  denominator
+     -----------------------------------------------------------------------------------------------------------
+     w=8              8          128          0.937500     0.937500     0.937500    YES    FAIL->PROV tightest interval hull
+     w=16             16         32768        0.999512     0.999512     0.999512    YES    FAIL->PROV tightest interval hull
+     w=32             32         2.15e9       1.000000     1.000000     1.000000    YES    FAIL->PROV tightest interval hull
+     w=64             64         9.22e18      1.000000     1.000000     1.000000    YES    FAIL->PROV tightest interval hull
+
+  pattern 5/6 -- struct field factoring / stride-union convexification   (parameter: Z,k,g)
+     param            |S|        hull         DBF(hull)    DBF(denom)   closed form match  verdicts  denominator
+     -----------------------------------------------------------------------------------------------------------
+     Z=8 k=1 g=4      12         20           0.400000     0.500000     0.500000    YES    -         touched bytes of the region
+     Z=8 k=2 g=4      24         24           0.000000     0.000000     0.000000    YES    -         touched bytes of the region
+     Z=16 k=1 g=4     12         36           0.666667     0.750000     0.750000    YES    -         touched bytes of the region
+     Z=16 k=2 g=4     24         40           0.400000     0.500000     0.500000    YES    -         touched bytes of the region
+     Z=16 k=3 g=4     36         44           0.181818     0.250000     0.250000    YES    -         touched bytes of the region
+     Z=32 k=1 g=4     12         68           0.823529     0.875000     0.875000    YES    -         touched bytes of the region
+     Z=32 k=2 g=4     24         72           0.666667     0.750000     0.750000    YES    -         touched bytes of the region
+     Z=32 k=3 g=4     36         76           0.526316     0.625000     0.625000    YES    -         touched bytes of the region
+
+  pattern 13 -- ZigZag bijective transport   (parameter: k)
+     param            |S|        hull         DBF(hull)    DBF(denom)   closed form match  verdicts  denominator
+     -----------------------------------------------------------------------------------------------------------
+     k=8              128        255          0.498039     0.500000     0.500000    YES    FAIL->PROV declared extent
+     k=16             32768      65535        0.499992     0.500000     0.500000    YES    FAIL->PROV declared extent
+     k=32             n/a        n/a          n/a          n/a          0.500000    n/a    n/a       not enumerated (budget)
+     note: the design's 1/2 is exact against the k-bit encoded space [0,2^k) (the DBF(denom) column);
+           against the tightest hull [0,2^k-2] it is 1 - 2^(k-1)/(2^k-1), the design's 'approx 1/2'.
+           k=32 is not enumerated: 2^31 concrete inputs exceeds the enumeration budget, so that row is
+           closed-form only.
+
+  pattern 14 -- sparse-state rank   (parameter: R,k)
+     param            |S|        hull         DBF(hull)    DBF(denom)   closed form match  verdicts  denominator
+     -----------------------------------------------------------------------------------------------------------
+     R=16 k=2         2          16           0.875000     0.875000     0.875000    YES    FAIL->PROV tightest interval hull
+     R=16 k=4         4          16           0.750000     0.750000     0.750000    YES    FAIL->PROV tightest interval hull
+     R=16 k=8         8          16           0.500000     0.500000     0.500000    YES    FAIL->PROV tightest interval hull
+     R=64 k=2         2          64           0.968750     0.968750     0.968750    YES    FAIL->PROV tightest interval hull
+     R=64 k=4         4          64           0.937500     0.937500     0.937500    YES    FAIL->PROV tightest interval hull
+     R=64 k=8         8          64           0.875000     0.875000     0.875000    YES    FAIL->PROV tightest interval hull
+     R=256 k=2        2          256          0.992188     0.992188     0.992188    YES    FAIL->PROV tightest interval hull
+     R=256 k=4        4          256          0.984375     0.984375     0.984375    YES    FAIL->PROV tightest interval hull
+     R=256 k=8        8          256          0.968750     0.968750     0.968750    YES    FAIL->PROV tightest interval hull
+     one-hot w=8      8          128          0.937500     0.937500     0.937500    YES    FAIL->PROV tightest interval hull
+     one-hot w=16     16         32768        0.999512     0.999512     0.999512    YES    FAIL->PROV tightest interval hull
+
+  pattern 16 -- lockstep elimination   (parameter: n)
+     param            |S|        hull         DBF(hull)    DBF(denom)   closed form match  verdicts  denominator
+     -----------------------------------------------------------------------------------------------------------
+     n=4              4          16           0.750000     0.750000     0.750000    YES    FAIL->PROV box = product of the two tightest intervals
+     n=8              8          64           0.875000     0.875000     0.875000    YES    FAIL->PROV box = product of the two tightest intervals
+     n=16             16         256          0.937500     0.937500     0.937500    YES    FAIL->PROV box = product of the two tightest intervals
+     n=32             32         1024         0.968750     0.968750     0.968750    YES    FAIL->PROV box = product of the two tightest intervals
+     n=64             64         4096         0.984375     0.984375     0.984375    YES    FAIL->PROV box = product of the two tightest intervals
+
+TABLE 3  Aggregate
+
+     verdict discharge (FAIL -> PROVEN)        16/16
+     mutant flips (unsafe check proven)        0/16   [must be 0]
+     mutants with a concrete counterexample    16/16
+     soundness violations (abstract vs. concrete enumeration)   0
+     median width ratio at the check site      0.017570
+     width ratio range                         1.86e-09 .. 0.950000
+     closed-form DBF discrepancies             0
+
+TABLE 4  No-free-lunch controls: the concrete counterexample behind each mutant
+
+  #  mutation                                                     concrete violating execution
+  --------------------------------------------------------------------------------------------
+  1  array length 20 -> 19; a[19] is then out of bounds.          t=19 fails check_bound after 49 steps
+  2  array length 20 -> 16; i = 16 is then out of bounds.         i=16 fails check_bound after 19 steps
+  3  shift width 8 -> 7; t = 7 is then an inadmissible shift.     t=7 fails check_shift after 39 steps
+  4  accumulator bound 120 -> 119; s reaches exactly 120.         s=120 fails check_range after 68 steps
+  5  byte extent 32 -> 31; the last field byte is exactly 31.     q=31 fails check_bound after 23 steps
+  6  byte extent 48 -> 43; the last touched byte is exactly 43.   a=43 fails check_bound after 65 steps
+  7  buffer length 16 -> 15; index 15 is then out of bounds.      t=15 fails check_bound after 90 steps
+  8  table size 4096 -> 4095; h = 4095 is reachable.              h=4095 fails check_bound after 5 steps
+  9  table size 16 -> 15; r = 15 is reachable.                    r=15 fails check_bound after 5 steps
+  10 table size 64 -> 63; t = 63 is reachable.                    t=63 fails check_bound after 4 steps
+  11 table size 16 -> 15; f = 15 is reachable.                    f=15 fails check_bound after 25 steps
+  12 accepted upper end 200 -> 199; x = 200 is reachable.         x=200 fails check_range after 6 steps
+  13 buffer length 255 -> 254; z = 254 is reachable.              z=254 fails check_bound after 7 steps
+  14 table size 5 -> 4; idx = 4 is reachable.                     idx=4 fails check_bound after 16 steps
+  15 table size 101 -> 100; d = 100 is reachable (a=0, b=100).    d=100 fails check_bound after 7 steps
+  16 array length 8 -> 7; p = 7 is reachable.                     p=7 fails check_bound after 39 steps
+
+TABLE 5  Validity probes -- the OTHER failure direction (not counted anywhere above)
+         Each row breaks the pattern's validity condition and injects the fact
+         anyway.  The fact is then invalid, meeting it is subtractive, and the
+         analysis proves a check that a concrete execution violates.  This is the
+         soundness obligation of the paper's section on validity, exhibited.
+
+  #  broken validity condition                 verdict   violation   fact ok?  outcome
+  ------------------------------------------------------------------------------------
+  1  body writes i besides the increment        PROVEN    yes         NO        UNSOUND, as the paper predicts
+  2  stride 3 does not divide N - c0 = 20       PROVEN    yes         NO        UNSOUND, as the paper predicts
+  14 a transition writes 20, not a member of S  PROVEN    yes         NO        UNSOUND, as the paper predicts
+
+FOOTNOTES
+
+  [A] Baseline domain.  The BASELINE column is a textbook interval analysis:
+      bitwise and/or/xor have no interval transfer and return TOP (they are folded
+      exactly on singleton operands); shifts by a constant ARE precise, being
+      multiplication/division by a power of two.  Any operation whose exact integer
+      result may leave [0, 2^w) returns TOP -- the concrete semantics wraps, the
+      abstract side refuses to guess.  Widening is to thresholds drawn from the
+      program's and the fact's constants, followed by a standard descending pass.
+
+  [B] Fact-only components.  The small-set component and the relational <= side
+      table are NEVER synthesised by a transfer function -- they are populated only
+      by injected facts, and propagate through copies, joins, meets and comparison
+      edges.  The baseline therefore stays a plain interval analysis.
+
+  [C] Mutants break the CHECK, never the pattern's validity condition, so the
+      injected fact stays valid and injecting it stays sound; the mutant tests that
+      the fold buys no free lunch.  Breaking the validity condition instead is the
+      other failure direction and is reported separately in TABLE 5.
+
+  [D] Approximations.  Where the fact this analyzer can express is weaker than the
+      fact the paper describes, the weaker fact is what was injected:
+      pattern 8  KnownBits approximated: the fact is the known-zero mask h & 0xF000 == 0; it is
+                 injected as its interval consequence h <= 0x0FFF, which is exact here because
+                 the known-zero bits are the top bits.
+      pattern 11 bit-set approximated: the fact is the grown-only bit set {0,1,2,3}; it is
+                 injected as its interval consequence f <= 15, exact because the supplied bits
+                 are the low four.
+      pattern 13 the exact image is the EVEN values of [0,254] (128 points); it is injected as
+                 the image interval [0,254] the paper's transport lemma gives, not as the
+                 128-element set.
+
+  [E] Soundness.  For every program, every variant and every sweep point, the
+      abstract state at each program point was checked to CONTAIN the complete
+      concrete reachable set at that point, enumerated by the interpreter.
+
+  [F] UNREACH is reported as its own verdict: an empty abstract state proves every
+      check vacuously and is never counted as a discharge.
+
+  [G] DBF denominators.  DESIGN.md defines DBF against "the tightest convex
+      approximation".  For patterns 3, 14 and 16 that is what its closed form is a
+      closed form for, and DBF(hull) = DBF(denom) in TABLE 2.  For patterns 1/2,
+      5/6 and 13 the design's formula is a closed form for a DIFFERENT, larger
+      denominator -- respectively the interval the analysis holds without the fact,
+      the declared byte extent of the region, and the k-bit encoded space -- so
+      both fractions are printed and each sweep says which one its formula matches.
+      No formula was chosen after seeing the measurement: each derivation is in the
+      comment above its sweep in examples.py, and --check compares against the
+      denominator that comment declares.
+
+All harness expectations hold: 16/16 verdict flips, 0/16 mutant flips with a
+concrete counterexample behind every mutant, and containment of the enumerated
+concrete reachable set at every point of every program.
+

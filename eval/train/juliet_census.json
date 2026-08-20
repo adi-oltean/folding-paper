@@ -1,0 +1,2253 @@
+{
+ "meta": {
+  "source_repo": "https://github.com/arichardson/juliet-test-suite-c",
+  "upstream": "NIST SARD Juliet Test Suite for C/C++ v1.3 (CWE-121/122/124/126/127 subset)",
+  "commit_sha": "f88433e3443648a17671398797a04ea1f8e1a274",
+  "commit_date": "2025-03-27T21:25:16Z",
+  "fetched_via": "GitHub contents API, testcases/<CWE>/<sNN>/ directory listings, 2026-08-20",
+  "cwes_covered": [
+   "CWE121_Stack_Based_Buffer_Overflow",
+   "CWE122_Heap_Based_Buffer_Overflow",
+   "CWE124_Buffer_Underwrite",
+   "CWE126_Buffer_Overread",
+   "CWE127_Buffer_Underread"
+  ],
+  "unit": "a (cwe, mechanism) row is one vulnerability-mechanism family (e.g. CWE121/CWE131_loop); file_count sums every flow-variant file (numeric suffix 01..84, a/b/c/.. splits) Juliet generates for that SAME underlying flaw -- the flow variants change control/data-flow plumbing (globals, threads, separate files, ...), never the arithmetic shape, per Juliet's own documented flow-variant taxonomy; classifying one representative file per mechanism (spot-read, see TRAIN-RESULTS.md) is therefore representative of the whole family.",
+  "n_mechanisms": 372,
+  "n_files_total": 27593
+ },
+ "mechanisms": [
+  {
+   "cwe": "CWE121",
+   "mechanism": "CWE129_connect_socket",
+   "file_count": 86,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__CWE129_connect_socket_01.c"
+  },
+  {
+   "cwe": "CWE121",
+   "mechanism": "CWE129_fgets",
+   "file_count": 86,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__CWE129_fgets_01.c"
+  },
+  {
+   "cwe": "CWE121",
+   "mechanism": "CWE129_fscanf",
+   "file_count": 86,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__CWE129_fscanf_01.c"
+  },
+  {
+   "cwe": "CWE121",
+   "mechanism": "CWE129_large",
+   "file_count": 86,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__CWE129_large_01.c"
+  },
+  {
+   "cwe": "CWE121",
+   "mechanism": "CWE129_listen_socket",
+   "file_count": 86,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__CWE129_listen_socket_01.c"
+  },
+  {
+   "cwe": "CWE121",
+   "mechanism": "CWE129_rand",
+   "file_count": 86,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__CWE129_rand_01.c"
+  },
+  {
+   "cwe": "CWE121",
+   "mechanism": "CWE131_loop",
+   "file_count": 65,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__CWE131_loop_01.c"
+  },
+  {
+   "cwe": "CWE121",
+   "mechanism": "CWE131_memcpy",
+   "file_count": 65,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__CWE131_memcpy_01.c"
+  },
+  {
+   "cwe": "CWE121",
+   "mechanism": "CWE131_memmove",
+   "file_count": 65,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__CWE131_memmove_01.c"
+  },
+  {
+   "cwe": "CWE121",
+   "mechanism": "CWE135",
+   "file_count": 86,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__CWE135_01.c"
+  },
+  {
+   "cwe": "CWE121",
+   "mechanism": "CWE193_char_alloca_cpy",
+   "file_count": 65,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__CWE193_char_alloca_cpy_01.c"
+  },
+  {
+   "cwe": "CWE121",
+   "mechanism": "CWE193_char_alloca_loop",
+   "file_count": 65,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__CWE193_char_alloca_loop_01.c"
+  },
+  {
+   "cwe": "CWE121",
+   "mechanism": "CWE193_char_alloca_memcpy",
+   "file_count": 65,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__CWE193_char_alloca_memcpy_01.c"
+  },
+  {
+   "cwe": "CWE121",
+   "mechanism": "CWE193_char_alloca_memmove",
+   "file_count": 65,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__CWE193_char_alloca_memmove_01.c"
+  },
+  {
+   "cwe": "CWE121",
+   "mechanism": "CWE193_char_alloca_ncpy",
+   "file_count": 65,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__CWE193_char_alloca_ncpy_01.c"
+  },
+  {
+   "cwe": "CWE121",
+   "mechanism": "CWE193_char_declare_cpy",
+   "file_count": 65,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__CWE193_char_declare_cpy_01.c"
+  },
+  {
+   "cwe": "CWE121",
+   "mechanism": "CWE193_char_declare_loop",
+   "file_count": 65,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__CWE193_char_declare_loop_01.c"
+  },
+  {
+   "cwe": "CWE121",
+   "mechanism": "CWE193_char_declare_memcpy",
+   "file_count": 65,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__CWE193_char_declare_memcpy_01.c"
+  },
+  {
+   "cwe": "CWE121",
+   "mechanism": "CWE193_char_declare_memmove",
+   "file_count": 65,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__CWE193_char_declare_memmove_01.c"
+  },
+  {
+   "cwe": "CWE121",
+   "mechanism": "CWE193_char_declare_ncpy",
+   "file_count": 65,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__CWE193_char_declare_ncpy_01.c"
+  },
+  {
+   "cwe": "CWE121",
+   "mechanism": "CWE193_wchar_t_alloca_cpy",
+   "file_count": 65,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__CWE193_wchar_t_alloca_cpy_01.c"
+  },
+  {
+   "cwe": "CWE121",
+   "mechanism": "CWE193_wchar_t_alloca_loop",
+   "file_count": 65,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__CWE193_wchar_t_alloca_loop_01.c"
+  },
+  {
+   "cwe": "CWE121",
+   "mechanism": "CWE193_wchar_t_alloca_memcpy",
+   "file_count": 65,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__CWE193_wchar_t_alloca_memcpy_01.c"
+  },
+  {
+   "cwe": "CWE121",
+   "mechanism": "CWE193_wchar_t_alloca_memmove",
+   "file_count": 65,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__CWE193_wchar_t_alloca_memmove_01.c"
+  },
+  {
+   "cwe": "CWE121",
+   "mechanism": "CWE193_wchar_t_alloca_ncpy",
+   "file_count": 65,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__CWE193_wchar_t_alloca_ncpy_01.c"
+  },
+  {
+   "cwe": "CWE121",
+   "mechanism": "CWE193_wchar_t_declare_cpy",
+   "file_count": 65,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__CWE193_wchar_t_declare_cpy_01.c"
+  },
+  {
+   "cwe": "CWE121",
+   "mechanism": "CWE193_wchar_t_declare_loop",
+   "file_count": 65,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__CWE193_wchar_t_declare_loop_01.c"
+  },
+  {
+   "cwe": "CWE121",
+   "mechanism": "CWE193_wchar_t_declare_memcpy",
+   "file_count": 65,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__CWE193_wchar_t_declare_memcpy_01.c"
+  },
+  {
+   "cwe": "CWE121",
+   "mechanism": "CWE193_wchar_t_declare_memmove",
+   "file_count": 65,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__CWE193_wchar_t_declare_memmove_01.c"
+  },
+  {
+   "cwe": "CWE121",
+   "mechanism": "CWE193_wchar_t_declare_ncpy",
+   "file_count": 65,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__CWE193_wchar_t_declare_ncpy_01.c"
+  },
+  {
+   "cwe": "CWE121",
+   "mechanism": "CWE805_char_alloca_loop",
+   "file_count": 65,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__CWE805_char_alloca_loop_01.c"
+  },
+  {
+   "cwe": "CWE121",
+   "mechanism": "CWE805_char_alloca_memcpy",
+   "file_count": 65,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__CWE805_char_alloca_memcpy_01.c"
+  },
+  {
+   "cwe": "CWE121",
+   "mechanism": "CWE805_char_alloca_memmove",
+   "file_count": 65,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__CWE805_char_alloca_memmove_01.c"
+  },
+  {
+   "cwe": "CWE121",
+   "mechanism": "CWE805_char_alloca_ncat",
+   "file_count": 65,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__CWE805_char_alloca_ncat_01.c"
+  },
+  {
+   "cwe": "CWE121",
+   "mechanism": "CWE805_char_alloca_ncpy",
+   "file_count": 65,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__CWE805_char_alloca_ncpy_01.c"
+  },
+  {
+   "cwe": "CWE121",
+   "mechanism": "CWE805_char_alloca_snprintf",
+   "file_count": 65,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__CWE805_char_alloca_snprintf_01.c"
+  },
+  {
+   "cwe": "CWE121",
+   "mechanism": "CWE805_char_declare_loop",
+   "file_count": 65,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__CWE805_char_declare_loop_01.c"
+  },
+  {
+   "cwe": "CWE121",
+   "mechanism": "CWE805_char_declare_memcpy",
+   "file_count": 65,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__CWE805_char_declare_memcpy_01.c"
+  },
+  {
+   "cwe": "CWE121",
+   "mechanism": "CWE805_char_declare_memmove",
+   "file_count": 65,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__CWE805_char_declare_memmove_01.c"
+  },
+  {
+   "cwe": "CWE121",
+   "mechanism": "CWE805_char_declare_ncat",
+   "file_count": 65,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__CWE805_char_declare_ncat_01.c"
+  },
+  {
+   "cwe": "CWE121",
+   "mechanism": "CWE805_char_declare_ncpy",
+   "file_count": 65,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__CWE805_char_declare_ncpy_01.c"
+  },
+  {
+   "cwe": "CWE121",
+   "mechanism": "CWE805_char_declare_snprintf",
+   "file_count": 65,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__CWE805_char_declare_snprintf_01.c"
+  },
+  {
+   "cwe": "CWE121",
+   "mechanism": "CWE805_int64_t_alloca_loop",
+   "file_count": 65,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__CWE805_int64_t_alloca_loop_01.c"
+  },
+  {
+   "cwe": "CWE121",
+   "mechanism": "CWE805_int64_t_alloca_memcpy",
+   "file_count": 65,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__CWE805_int64_t_alloca_memcpy_01.c"
+  },
+  {
+   "cwe": "CWE121",
+   "mechanism": "CWE805_int64_t_alloca_memmove",
+   "file_count": 65,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__CWE805_int64_t_alloca_memmove_01.c"
+  },
+  {
+   "cwe": "CWE121",
+   "mechanism": "CWE805_int64_t_declare_loop",
+   "file_count": 65,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__CWE805_int64_t_declare_loop_01.c"
+  },
+  {
+   "cwe": "CWE121",
+   "mechanism": "CWE805_int64_t_declare_memcpy",
+   "file_count": 65,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__CWE805_int64_t_declare_memcpy_01.c"
+  },
+  {
+   "cwe": "CWE121",
+   "mechanism": "CWE805_int64_t_declare_memmove",
+   "file_count": 65,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__CWE805_int64_t_declare_memmove_01.c"
+  },
+  {
+   "cwe": "CWE121",
+   "mechanism": "CWE805_int_alloca_loop",
+   "file_count": 65,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__CWE805_int_alloca_loop_01.c"
+  },
+  {
+   "cwe": "CWE121",
+   "mechanism": "CWE805_int_alloca_memcpy",
+   "file_count": 65,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__CWE805_int_alloca_memcpy_01.c"
+  },
+  {
+   "cwe": "CWE121",
+   "mechanism": "CWE805_int_alloca_memmove",
+   "file_count": 65,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__CWE805_int_alloca_memmove_01.c"
+  },
+  {
+   "cwe": "CWE121",
+   "mechanism": "CWE805_int_declare_loop",
+   "file_count": 65,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__CWE805_int_declare_loop_01.c"
+  },
+  {
+   "cwe": "CWE121",
+   "mechanism": "CWE805_int_declare_memcpy",
+   "file_count": 65,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__CWE805_int_declare_memcpy_01.c"
+  },
+  {
+   "cwe": "CWE121",
+   "mechanism": "CWE805_int_declare_memmove",
+   "file_count": 65,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__CWE805_int_declare_memmove_01.c"
+  },
+  {
+   "cwe": "CWE121",
+   "mechanism": "CWE805_struct_alloca_loop",
+   "file_count": 65,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__CWE805_struct_alloca_loop_01.c"
+  },
+  {
+   "cwe": "CWE121",
+   "mechanism": "CWE805_struct_alloca_memcpy",
+   "file_count": 65,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__CWE805_struct_alloca_memcpy_01.c"
+  },
+  {
+   "cwe": "CWE121",
+   "mechanism": "CWE805_struct_alloca_memmove",
+   "file_count": 65,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__CWE805_struct_alloca_memmove_01.c"
+  },
+  {
+   "cwe": "CWE121",
+   "mechanism": "CWE805_struct_declare_loop",
+   "file_count": 65,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__CWE805_struct_declare_loop_01.c"
+  },
+  {
+   "cwe": "CWE121",
+   "mechanism": "CWE805_struct_declare_memcpy",
+   "file_count": 65,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__CWE805_struct_declare_memcpy_01.c"
+  },
+  {
+   "cwe": "CWE121",
+   "mechanism": "CWE805_struct_declare_memmove",
+   "file_count": 65,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__CWE805_struct_declare_memmove_01.c"
+  },
+  {
+   "cwe": "CWE121",
+   "mechanism": "CWE805_wchar_t_alloca_loop",
+   "file_count": 65,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__CWE805_wchar_t_alloca_loop_01.c"
+  },
+  {
+   "cwe": "CWE121",
+   "mechanism": "CWE805_wchar_t_alloca_memcpy",
+   "file_count": 65,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__CWE805_wchar_t_alloca_memcpy_01.c"
+  },
+  {
+   "cwe": "CWE121",
+   "mechanism": "CWE805_wchar_t_alloca_memmove",
+   "file_count": 65,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__CWE805_wchar_t_alloca_memmove_01.c"
+  },
+  {
+   "cwe": "CWE121",
+   "mechanism": "CWE805_wchar_t_alloca_ncat",
+   "file_count": 65,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__CWE805_wchar_t_alloca_ncat_01.c"
+  },
+  {
+   "cwe": "CWE121",
+   "mechanism": "CWE805_wchar_t_alloca_ncpy",
+   "file_count": 65,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__CWE805_wchar_t_alloca_ncpy_01.c"
+  },
+  {
+   "cwe": "CWE121",
+   "mechanism": "CWE805_wchar_t_alloca_snprintf",
+   "file_count": 65,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__CWE805_wchar_t_alloca_snprintf_01.c"
+  },
+  {
+   "cwe": "CWE121",
+   "mechanism": "CWE805_wchar_t_declare_loop",
+   "file_count": 65,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__CWE805_wchar_t_declare_loop_01.c"
+  },
+  {
+   "cwe": "CWE121",
+   "mechanism": "CWE805_wchar_t_declare_memcpy",
+   "file_count": 65,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__CWE805_wchar_t_declare_memcpy_01.c"
+  },
+  {
+   "cwe": "CWE121",
+   "mechanism": "CWE805_wchar_t_declare_memmove",
+   "file_count": 65,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__CWE805_wchar_t_declare_memmove_01.c"
+  },
+  {
+   "cwe": "CWE121",
+   "mechanism": "CWE805_wchar_t_declare_ncat",
+   "file_count": 65,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__CWE805_wchar_t_declare_ncat_01.c"
+  },
+  {
+   "cwe": "CWE121",
+   "mechanism": "CWE805_wchar_t_declare_ncpy",
+   "file_count": 65,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__CWE805_wchar_t_declare_ncpy_01.c"
+  },
+  {
+   "cwe": "CWE121",
+   "mechanism": "CWE805_wchar_t_declare_snprintf",
+   "file_count": 65,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__CWE805_wchar_t_declare_snprintf_01.c"
+  },
+  {
+   "cwe": "CWE121",
+   "mechanism": "CWE806_char_alloca_loop",
+   "file_count": 82,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__CWE806_char_alloca_loop_01.c"
+  },
+  {
+   "cwe": "CWE121",
+   "mechanism": "CWE806_char_alloca_memcpy",
+   "file_count": 82,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__CWE806_char_alloca_memcpy_01.c"
+  },
+  {
+   "cwe": "CWE121",
+   "mechanism": "CWE806_char_alloca_memmove",
+   "file_count": 82,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__CWE806_char_alloca_memmove_01.c"
+  },
+  {
+   "cwe": "CWE121",
+   "mechanism": "CWE806_char_alloca_ncat",
+   "file_count": 82,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__CWE806_char_alloca_ncat_01.c"
+  },
+  {
+   "cwe": "CWE121",
+   "mechanism": "CWE806_char_alloca_ncpy",
+   "file_count": 82,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__CWE806_char_alloca_ncpy_01.c"
+  },
+  {
+   "cwe": "CWE121",
+   "mechanism": "CWE806_char_alloca_snprintf",
+   "file_count": 82,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__CWE806_char_alloca_snprintf_01.c"
+  },
+  {
+   "cwe": "CWE121",
+   "mechanism": "CWE806_char_declare_loop",
+   "file_count": 82,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__CWE806_char_declare_loop_01.c"
+  },
+  {
+   "cwe": "CWE121",
+   "mechanism": "CWE806_char_declare_memcpy",
+   "file_count": 82,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__CWE806_char_declare_memcpy_01.c"
+  },
+  {
+   "cwe": "CWE121",
+   "mechanism": "CWE806_char_declare_memmove",
+   "file_count": 82,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__CWE806_char_declare_memmove_01.c"
+  },
+  {
+   "cwe": "CWE121",
+   "mechanism": "CWE806_char_declare_ncat",
+   "file_count": 82,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__CWE806_char_declare_ncat_01.c"
+  },
+  {
+   "cwe": "CWE121",
+   "mechanism": "CWE806_char_declare_ncpy",
+   "file_count": 82,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__CWE806_char_declare_ncpy_01.c"
+  },
+  {
+   "cwe": "CWE121",
+   "mechanism": "CWE806_char_declare_snprintf",
+   "file_count": 82,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__CWE806_char_declare_snprintf_01.c"
+  },
+  {
+   "cwe": "CWE121",
+   "mechanism": "CWE806_wchar_t_alloca_loop",
+   "file_count": 82,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__CWE806_wchar_t_alloca_loop_01.c"
+  },
+  {
+   "cwe": "CWE121",
+   "mechanism": "CWE806_wchar_t_alloca_memcpy",
+   "file_count": 82,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__CWE806_wchar_t_alloca_memcpy_01.c"
+  },
+  {
+   "cwe": "CWE121",
+   "mechanism": "CWE806_wchar_t_alloca_memmove",
+   "file_count": 82,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__CWE806_wchar_t_alloca_memmove_01.c"
+  },
+  {
+   "cwe": "CWE121",
+   "mechanism": "CWE806_wchar_t_alloca_ncat",
+   "file_count": 82,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__CWE806_wchar_t_alloca_ncat_01.c"
+  },
+  {
+   "cwe": "CWE121",
+   "mechanism": "CWE806_wchar_t_alloca_ncpy",
+   "file_count": 82,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__CWE806_wchar_t_alloca_ncpy_01.c"
+  },
+  {
+   "cwe": "CWE121",
+   "mechanism": "CWE806_wchar_t_alloca_snprintf",
+   "file_count": 82,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__CWE806_wchar_t_alloca_snprintf_01.c"
+  },
+  {
+   "cwe": "CWE121",
+   "mechanism": "CWE806_wchar_t_declare_loop",
+   "file_count": 82,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__CWE806_wchar_t_declare_loop_01.c"
+  },
+  {
+   "cwe": "CWE121",
+   "mechanism": "CWE806_wchar_t_declare_memcpy",
+   "file_count": 82,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__CWE806_wchar_t_declare_memcpy_01.c"
+  },
+  {
+   "cwe": "CWE121",
+   "mechanism": "CWE806_wchar_t_declare_memmove",
+   "file_count": 82,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__CWE806_wchar_t_declare_memmove_01.c"
+  },
+  {
+   "cwe": "CWE121",
+   "mechanism": "CWE806_wchar_t_declare_ncat",
+   "file_count": 82,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__CWE806_wchar_t_declare_ncat_01.c"
+  },
+  {
+   "cwe": "CWE121",
+   "mechanism": "CWE806_wchar_t_declare_ncpy",
+   "file_count": 82,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__CWE806_wchar_t_declare_ncpy_01.c"
+  },
+  {
+   "cwe": "CWE121",
+   "mechanism": "CWE806_wchar_t_declare_snprintf",
+   "file_count": 82,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__CWE806_wchar_t_declare_snprintf_01.c"
+  },
+  {
+   "cwe": "CWE121",
+   "mechanism": "char_type_overrun_memcpy",
+   "file_count": 18,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__char_type_overrun_memcpy_01.c"
+  },
+  {
+   "cwe": "CWE121",
+   "mechanism": "char_type_overrun_memmove",
+   "file_count": 18,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__char_type_overrun_memmove_01.c"
+  },
+  {
+   "cwe": "CWE121",
+   "mechanism": "dest_char_alloca_cat",
+   "file_count": 65,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__dest_char_alloca_cat_01.c"
+  },
+  {
+   "cwe": "CWE121",
+   "mechanism": "dest_char_alloca_cpy",
+   "file_count": 65,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__dest_char_alloca_cpy_01.c"
+  },
+  {
+   "cwe": "CWE121",
+   "mechanism": "dest_char_declare_cat",
+   "file_count": 65,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__dest_char_declare_cat_01.c"
+  },
+  {
+   "cwe": "CWE121",
+   "mechanism": "dest_char_declare_cpy",
+   "file_count": 65,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__dest_char_declare_cpy_01.c"
+  },
+  {
+   "cwe": "CWE121",
+   "mechanism": "dest_wchar_t_alloca_cat",
+   "file_count": 65,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__dest_wchar_t_alloca_cat_01.c"
+  },
+  {
+   "cwe": "CWE121",
+   "mechanism": "dest_wchar_t_alloca_cpy",
+   "file_count": 65,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__dest_wchar_t_alloca_cpy_01.c"
+  },
+  {
+   "cwe": "CWE121",
+   "mechanism": "dest_wchar_t_declare_cat",
+   "file_count": 65,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__dest_wchar_t_declare_cat_01.c"
+  },
+  {
+   "cwe": "CWE121",
+   "mechanism": "dest_wchar_t_declare_cpy",
+   "file_count": 65,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__dest_wchar_t_declare_cpy_01.c"
+  },
+  {
+   "cwe": "CWE121",
+   "mechanism": "placement_new_alloca",
+   "file_count": 67,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__placement_new_alloca_01.cpp"
+  },
+  {
+   "cwe": "CWE121",
+   "mechanism": "placement_new_declare",
+   "file_count": 67,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__placement_new_declare_01.cpp"
+  },
+  {
+   "cwe": "CWE121",
+   "mechanism": "src_char_alloca_cat",
+   "file_count": 82,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__src_char_alloca_cat_01.c"
+  },
+  {
+   "cwe": "CWE121",
+   "mechanism": "src_char_alloca_cpy",
+   "file_count": 82,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__src_char_alloca_cpy_01.c"
+  },
+  {
+   "cwe": "CWE121",
+   "mechanism": "src_char_declare_cat",
+   "file_count": 82,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__src_char_declare_cat_01.c"
+  },
+  {
+   "cwe": "CWE121",
+   "mechanism": "src_char_declare_cpy",
+   "file_count": 82,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__src_char_declare_cpy_01.c"
+  },
+  {
+   "cwe": "CWE121",
+   "mechanism": "src_wchar_t_alloca_cat",
+   "file_count": 82,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__src_wchar_t_alloca_cat_01.c"
+  },
+  {
+   "cwe": "CWE121",
+   "mechanism": "src_wchar_t_alloca_cpy",
+   "file_count": 82,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__src_wchar_t_alloca_cpy_01.c"
+  },
+  {
+   "cwe": "CWE121",
+   "mechanism": "src_wchar_t_declare_cat",
+   "file_count": 82,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__src_wchar_t_declare_cat_01.c"
+  },
+  {
+   "cwe": "CWE121",
+   "mechanism": "src_wchar_t_declare_cpy",
+   "file_count": 82,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__src_wchar_t_declare_cpy_01.c"
+  },
+  {
+   "cwe": "CWE121",
+   "mechanism": "wchar_t_type_overrun_memcpy",
+   "file_count": 18,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__wchar_t_type_overrun_memcpy_01.c"
+  },
+  {
+   "cwe": "CWE121",
+   "mechanism": "wchar_t_type_overrun_memmove",
+   "file_count": 18,
+   "example_file": "CWE121_Stack_Based_Buffer_Overflow__wchar_t_type_overrun_memmove_01.c"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "CWE131_loop",
+   "file_count": 82,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__CWE131_loop_01.c"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "CWE131_memcpy",
+   "file_count": 82,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__CWE131_memcpy_01.c"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "CWE131_memmove",
+   "file_count": 82,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__CWE131_memmove_01.c"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "CWE135",
+   "file_count": 86,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__CWE135_01.c"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "c_CWE129_connect_socket",
+   "file_count": 86,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__c_CWE129_connect_socket_01.c"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "c_CWE129_fgets",
+   "file_count": 86,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__c_CWE129_fgets_01.c"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "c_CWE129_fscanf",
+   "file_count": 86,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__c_CWE129_fscanf_01.c"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "c_CWE129_large",
+   "file_count": 86,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__c_CWE129_large_01.c"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "c_CWE129_listen_socket",
+   "file_count": 86,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__c_CWE129_listen_socket_01.c"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "c_CWE129_rand",
+   "file_count": 86,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__c_CWE129_rand_01.c"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "c_CWE193_char_cpy",
+   "file_count": 82,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__c_CWE193_char_cpy_01.c"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "c_CWE193_char_loop",
+   "file_count": 82,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__c_CWE193_char_loop_01.c"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "c_CWE193_char_memcpy",
+   "file_count": 82,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__c_CWE193_char_memcpy_01.c"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "c_CWE193_char_memmove",
+   "file_count": 82,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__c_CWE193_char_memmove_01.c"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "c_CWE193_char_ncpy",
+   "file_count": 82,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__c_CWE193_char_ncpy_01.c"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "c_CWE193_wchar_t_cpy",
+   "file_count": 82,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__c_CWE193_wchar_t_cpy_01.c"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "c_CWE193_wchar_t_loop",
+   "file_count": 82,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__c_CWE193_wchar_t_loop_01.c"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "c_CWE193_wchar_t_memcpy",
+   "file_count": 82,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__c_CWE193_wchar_t_memcpy_01.c"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "c_CWE193_wchar_t_memmove",
+   "file_count": 82,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__c_CWE193_wchar_t_memmove_01.c"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "c_CWE193_wchar_t_ncpy",
+   "file_count": 82,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__c_CWE193_wchar_t_ncpy_01.c"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "c_CWE805_char_loop",
+   "file_count": 82,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__c_CWE805_char_loop_01.c"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "c_CWE805_char_memcpy",
+   "file_count": 82,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__c_CWE805_char_memcpy_01.c"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "c_CWE805_char_memmove",
+   "file_count": 82,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__c_CWE805_char_memmove_01.c"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "c_CWE805_char_ncat",
+   "file_count": 82,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__c_CWE805_char_ncat_01.c"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "c_CWE805_char_ncpy",
+   "file_count": 82,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__c_CWE805_char_ncpy_01.c"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "c_CWE805_char_snprintf",
+   "file_count": 82,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__c_CWE805_char_snprintf_01.c"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "c_CWE805_int64_t_loop",
+   "file_count": 82,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__c_CWE805_int64_t_loop_01.c"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "c_CWE805_int64_t_memcpy",
+   "file_count": 82,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__c_CWE805_int64_t_memcpy_01.c"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "c_CWE805_int64_t_memmove",
+   "file_count": 82,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__c_CWE805_int64_t_memmove_01.c"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "c_CWE805_int_loop",
+   "file_count": 82,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__c_CWE805_int_loop_01.c"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "c_CWE805_int_memcpy",
+   "file_count": 82,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__c_CWE805_int_memcpy_01.c"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "c_CWE805_int_memmove",
+   "file_count": 82,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__c_CWE805_int_memmove_01.c"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "c_CWE805_struct_loop",
+   "file_count": 82,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__c_CWE805_struct_loop_01.c"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "c_CWE805_struct_memcpy",
+   "file_count": 82,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__c_CWE805_struct_memcpy_01.c"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "c_CWE805_struct_memmove",
+   "file_count": 82,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__c_CWE805_struct_memmove_01.c"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "c_CWE805_wchar_t_loop",
+   "file_count": 82,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__c_CWE805_wchar_t_loop_01.c"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "c_CWE805_wchar_t_memcpy",
+   "file_count": 82,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__c_CWE805_wchar_t_memcpy_01.c"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "c_CWE805_wchar_t_memmove",
+   "file_count": 82,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__c_CWE805_wchar_t_memmove_01.c"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "c_CWE805_wchar_t_ncat",
+   "file_count": 82,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__c_CWE805_wchar_t_ncat_01.c"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "c_CWE805_wchar_t_ncpy",
+   "file_count": 82,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__c_CWE805_wchar_t_ncpy_01.c"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "c_CWE805_wchar_t_snprintf",
+   "file_count": 82,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__c_CWE805_wchar_t_snprintf_01.c"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "c_CWE806_char_loop",
+   "file_count": 82,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__c_CWE806_char_loop_01.c"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "c_CWE806_char_memcpy",
+   "file_count": 82,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__c_CWE806_char_memcpy_01.c"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "c_CWE806_char_memmove",
+   "file_count": 82,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__c_CWE806_char_memmove_01.c"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "c_CWE806_char_ncat",
+   "file_count": 82,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__c_CWE806_char_ncat_01.c"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "c_CWE806_char_ncpy",
+   "file_count": 82,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__c_CWE806_char_ncpy_01.c"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "c_CWE806_char_snprintf",
+   "file_count": 82,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__c_CWE806_char_snprintf_01.c"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "c_CWE806_wchar_t_loop",
+   "file_count": 82,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__c_CWE806_wchar_t_loop_01.c"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "c_CWE806_wchar_t_memcpy",
+   "file_count": 82,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__c_CWE806_wchar_t_memcpy_01.c"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "c_CWE806_wchar_t_memmove",
+   "file_count": 82,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__c_CWE806_wchar_t_memmove_01.c"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "c_CWE806_wchar_t_ncat",
+   "file_count": 82,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__c_CWE806_wchar_t_ncat_01.c"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "c_CWE806_wchar_t_ncpy",
+   "file_count": 82,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__c_CWE806_wchar_t_ncpy_01.c"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "c_CWE806_wchar_t_snprintf",
+   "file_count": 82,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__c_CWE806_wchar_t_snprintf_01.c"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "c_dest_char_cat",
+   "file_count": 82,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__c_dest_char_cat_01.c"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "c_dest_char_cpy",
+   "file_count": 82,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__c_dest_char_cpy_01.c"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "c_dest_wchar_t_cat",
+   "file_count": 82,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__c_dest_wchar_t_cat_01.c"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "c_dest_wchar_t_cpy",
+   "file_count": 82,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__c_dest_wchar_t_cpy_01.c"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "c_src_char_cat",
+   "file_count": 82,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__c_src_char_cat_01.c"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "c_src_char_cpy",
+   "file_count": 82,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__c_src_char_cpy_01.c"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "c_src_wchar_t_cat",
+   "file_count": 82,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__c_src_wchar_t_cat_01.c"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "c_src_wchar_t_cpy",
+   "file_count": 82,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__c_src_wchar_t_cpy_01.c"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "char_type_overrun_memcpy",
+   "file_count": 18,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__char_type_overrun_memcpy_01.c"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "char_type_overrun_memmove",
+   "file_count": 18,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__char_type_overrun_memmove_01.c"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "cpp_CWE129_connect_socket",
+   "file_count": 86,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__cpp_CWE129_connect_socket_01.cpp"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "cpp_CWE129_fgets",
+   "file_count": 86,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__cpp_CWE129_fgets_01.cpp"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "cpp_CWE129_fscanf",
+   "file_count": 86,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__cpp_CWE129_fscanf_01.cpp"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "cpp_CWE129_large",
+   "file_count": 86,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__cpp_CWE129_large_01.cpp"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "cpp_CWE129_listen_socket",
+   "file_count": 86,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__cpp_CWE129_listen_socket_01.cpp"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "cpp_CWE129_rand",
+   "file_count": 86,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__cpp_CWE129_rand_01.cpp"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "cpp_CWE193_char_cpy",
+   "file_count": 82,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__cpp_CWE193_char_cpy_01.cpp"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "cpp_CWE193_char_loop",
+   "file_count": 82,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__cpp_CWE193_char_loop_01.cpp"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "cpp_CWE193_char_memcpy",
+   "file_count": 82,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__cpp_CWE193_char_memcpy_01.cpp"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "cpp_CWE193_char_memmove",
+   "file_count": 82,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__cpp_CWE193_char_memmove_01.cpp"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "cpp_CWE193_char_ncpy",
+   "file_count": 82,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__cpp_CWE193_char_ncpy_01.cpp"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "cpp_CWE193_wchar_t_cpy",
+   "file_count": 82,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__cpp_CWE193_wchar_t_cpy_01.cpp"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "cpp_CWE193_wchar_t_loop",
+   "file_count": 82,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__cpp_CWE193_wchar_t_loop_01.cpp"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "cpp_CWE193_wchar_t_memcpy",
+   "file_count": 82,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__cpp_CWE193_wchar_t_memcpy_01.cpp"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "cpp_CWE193_wchar_t_memmove",
+   "file_count": 82,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__cpp_CWE193_wchar_t_memmove_01.cpp"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "cpp_CWE193_wchar_t_ncpy",
+   "file_count": 82,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__cpp_CWE193_wchar_t_ncpy_01.cpp"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "cpp_CWE805_char_loop",
+   "file_count": 82,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__cpp_CWE805_char_loop_01.cpp"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "cpp_CWE805_char_memcpy",
+   "file_count": 82,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__cpp_CWE805_char_memcpy_01.cpp"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "cpp_CWE805_char_memmove",
+   "file_count": 82,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__cpp_CWE805_char_memmove_01.cpp"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "cpp_CWE805_char_ncat",
+   "file_count": 82,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__cpp_CWE805_char_ncat_01.cpp"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "cpp_CWE805_char_ncpy",
+   "file_count": 82,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__cpp_CWE805_char_ncpy_01.cpp"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "cpp_CWE805_char_snprintf",
+   "file_count": 82,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__cpp_CWE805_char_snprintf_01.cpp"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "cpp_CWE805_class_loop",
+   "file_count": 82,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__cpp_CWE805_class_loop_01.cpp"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "cpp_CWE805_class_memcpy",
+   "file_count": 82,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__cpp_CWE805_class_memcpy_01.cpp"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "cpp_CWE805_class_memmove",
+   "file_count": 82,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__cpp_CWE805_class_memmove_01.cpp"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "cpp_CWE805_int64_t_loop",
+   "file_count": 82,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__cpp_CWE805_int64_t_loop_01.cpp"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "cpp_CWE805_int64_t_memcpy",
+   "file_count": 82,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__cpp_CWE805_int64_t_memcpy_01.cpp"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "cpp_CWE805_int64_t_memmove",
+   "file_count": 82,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__cpp_CWE805_int64_t_memmove_01.cpp"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "cpp_CWE805_int_loop",
+   "file_count": 82,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__cpp_CWE805_int_loop_01.cpp"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "cpp_CWE805_int_memcpy",
+   "file_count": 82,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__cpp_CWE805_int_memcpy_01.cpp"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "cpp_CWE805_int_memmove",
+   "file_count": 82,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__cpp_CWE805_int_memmove_01.cpp"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "cpp_CWE805_wchar_t_loop",
+   "file_count": 82,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__cpp_CWE805_wchar_t_loop_01.cpp"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "cpp_CWE805_wchar_t_memcpy",
+   "file_count": 82,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__cpp_CWE805_wchar_t_memcpy_01.cpp"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "cpp_CWE805_wchar_t_memmove",
+   "file_count": 82,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__cpp_CWE805_wchar_t_memmove_01.cpp"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "cpp_CWE805_wchar_t_ncat",
+   "file_count": 82,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__cpp_CWE805_wchar_t_ncat_01.cpp"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "cpp_CWE805_wchar_t_ncpy",
+   "file_count": 82,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__cpp_CWE805_wchar_t_ncpy_01.cpp"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "cpp_CWE805_wchar_t_snprintf",
+   "file_count": 82,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__cpp_CWE805_wchar_t_snprintf_01.cpp"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "cpp_CWE806_char_loop",
+   "file_count": 82,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__cpp_CWE806_char_loop_01.cpp"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "cpp_CWE806_char_memcpy",
+   "file_count": 82,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__cpp_CWE806_char_memcpy_01.cpp"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "cpp_CWE806_char_memmove",
+   "file_count": 82,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__cpp_CWE806_char_memmove_01.cpp"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "cpp_CWE806_char_ncat",
+   "file_count": 82,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__cpp_CWE806_char_ncat_01.cpp"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "cpp_CWE806_char_ncpy",
+   "file_count": 82,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__cpp_CWE806_char_ncpy_01.cpp"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "cpp_CWE806_char_snprintf",
+   "file_count": 82,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__cpp_CWE806_char_snprintf_01.cpp"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "cpp_CWE806_wchar_t_loop",
+   "file_count": 82,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__cpp_CWE806_wchar_t_loop_01.cpp"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "cpp_CWE806_wchar_t_memcpy",
+   "file_count": 82,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__cpp_CWE806_wchar_t_memcpy_01.cpp"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "cpp_CWE806_wchar_t_memmove",
+   "file_count": 82,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__cpp_CWE806_wchar_t_memmove_01.cpp"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "cpp_CWE806_wchar_t_ncat",
+   "file_count": 82,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__cpp_CWE806_wchar_t_ncat_01.cpp"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "cpp_CWE806_wchar_t_ncpy",
+   "file_count": 82,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__cpp_CWE806_wchar_t_ncpy_01.cpp"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "cpp_CWE806_wchar_t_snprintf",
+   "file_count": 82,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__cpp_CWE806_wchar_t_snprintf_01.cpp"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "cpp_dest_char_cat",
+   "file_count": 82,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__cpp_dest_char_cat_01.cpp"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "cpp_dest_char_cpy",
+   "file_count": 82,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__cpp_dest_char_cpy_01.cpp"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "cpp_dest_wchar_t_cat",
+   "file_count": 82,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__cpp_dest_wchar_t_cat_01.cpp"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "cpp_dest_wchar_t_cpy",
+   "file_count": 82,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__cpp_dest_wchar_t_cpy_01.cpp"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "cpp_src_char_cat",
+   "file_count": 82,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__cpp_src_char_cat_01.cpp"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "cpp_src_char_cpy",
+   "file_count": 82,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__cpp_src_char_cpy_01.cpp"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "cpp_src_wchar_t_cat",
+   "file_count": 82,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__cpp_src_wchar_t_cat_01.cpp"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "cpp_src_wchar_t_cpy",
+   "file_count": 82,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__cpp_src_wchar_t_cpy_01.cpp"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "placement_new",
+   "file_count": 70,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__placement_new_01.cpp"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "sizeof_double",
+   "file_count": 82,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__sizeof_double_01.c"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "sizeof_int64_t",
+   "file_count": 82,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__sizeof_int64_t_01.c"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "sizeof_struct",
+   "file_count": 82,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__sizeof_struct_01.c"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "wchar_t_type_overrun_memcpy",
+   "file_count": 18,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__wchar_t_type_overrun_memcpy_01.c"
+  },
+  {
+   "cwe": "CWE122",
+   "mechanism": "wchar_t_type_overrun_memmove",
+   "file_count": 18,
+   "example_file": "CWE122_Heap_Based_Buffer_Overflow__wchar_t_type_overrun_memmove_01.c"
+  },
+  {
+   "cwe": "CWE124",
+   "mechanism": "CWE839_connect_socket",
+   "file_count": 86,
+   "example_file": "CWE124_Buffer_Underwrite__CWE839_connect_socket_01.c"
+  },
+  {
+   "cwe": "CWE124",
+   "mechanism": "CWE839_fgets",
+   "file_count": 86,
+   "example_file": "CWE124_Buffer_Underwrite__CWE839_fgets_01.c"
+  },
+  {
+   "cwe": "CWE124",
+   "mechanism": "CWE839_fscanf",
+   "file_count": 86,
+   "example_file": "CWE124_Buffer_Underwrite__CWE839_fscanf_01.c"
+  },
+  {
+   "cwe": "CWE124",
+   "mechanism": "CWE839_listen_socket",
+   "file_count": 86,
+   "example_file": "CWE124_Buffer_Underwrite__CWE839_listen_socket_01.c"
+  },
+  {
+   "cwe": "CWE124",
+   "mechanism": "CWE839_negative",
+   "file_count": 86,
+   "example_file": "CWE124_Buffer_Underwrite__CWE839_negative_01.c"
+  },
+  {
+   "cwe": "CWE124",
+   "mechanism": "CWE839_rand",
+   "file_count": 86,
+   "example_file": "CWE124_Buffer_Underwrite__CWE839_rand_01.c"
+  },
+  {
+   "cwe": "CWE124",
+   "mechanism": "char_alloca_cpy",
+   "file_count": 65,
+   "example_file": "CWE124_Buffer_Underwrite__char_alloca_cpy_01.c"
+  },
+  {
+   "cwe": "CWE124",
+   "mechanism": "char_alloca_loop",
+   "file_count": 65,
+   "example_file": "CWE124_Buffer_Underwrite__char_alloca_loop_01.c"
+  },
+  {
+   "cwe": "CWE124",
+   "mechanism": "char_alloca_memcpy",
+   "file_count": 65,
+   "example_file": "CWE124_Buffer_Underwrite__char_alloca_memcpy_01.c"
+  },
+  {
+   "cwe": "CWE124",
+   "mechanism": "char_alloca_memmove",
+   "file_count": 65,
+   "example_file": "CWE124_Buffer_Underwrite__char_alloca_memmove_01.c"
+  },
+  {
+   "cwe": "CWE124",
+   "mechanism": "char_alloca_ncpy",
+   "file_count": 65,
+   "example_file": "CWE124_Buffer_Underwrite__char_alloca_ncpy_01.c"
+  },
+  {
+   "cwe": "CWE124",
+   "mechanism": "char_declare_cpy",
+   "file_count": 65,
+   "example_file": "CWE124_Buffer_Underwrite__char_declare_cpy_01.c"
+  },
+  {
+   "cwe": "CWE124",
+   "mechanism": "char_declare_loop",
+   "file_count": 65,
+   "example_file": "CWE124_Buffer_Underwrite__char_declare_loop_01.c"
+  },
+  {
+   "cwe": "CWE124",
+   "mechanism": "char_declare_memcpy",
+   "file_count": 65,
+   "example_file": "CWE124_Buffer_Underwrite__char_declare_memcpy_01.c"
+  },
+  {
+   "cwe": "CWE124",
+   "mechanism": "char_declare_memmove",
+   "file_count": 65,
+   "example_file": "CWE124_Buffer_Underwrite__char_declare_memmove_01.c"
+  },
+  {
+   "cwe": "CWE124",
+   "mechanism": "char_declare_ncpy",
+   "file_count": 65,
+   "example_file": "CWE124_Buffer_Underwrite__char_declare_ncpy_01.c"
+  },
+  {
+   "cwe": "CWE124",
+   "mechanism": "malloc_char_cpy",
+   "file_count": 82,
+   "example_file": "CWE124_Buffer_Underwrite__malloc_char_cpy_01.c"
+  },
+  {
+   "cwe": "CWE124",
+   "mechanism": "malloc_char_loop",
+   "file_count": 82,
+   "example_file": "CWE124_Buffer_Underwrite__malloc_char_loop_01.c"
+  },
+  {
+   "cwe": "CWE124",
+   "mechanism": "malloc_char_memcpy",
+   "file_count": 82,
+   "example_file": "CWE124_Buffer_Underwrite__malloc_char_memcpy_01.c"
+  },
+  {
+   "cwe": "CWE124",
+   "mechanism": "malloc_char_memmove",
+   "file_count": 82,
+   "example_file": "CWE124_Buffer_Underwrite__malloc_char_memmove_01.c"
+  },
+  {
+   "cwe": "CWE124",
+   "mechanism": "malloc_char_ncpy",
+   "file_count": 82,
+   "example_file": "CWE124_Buffer_Underwrite__malloc_char_ncpy_01.c"
+  },
+  {
+   "cwe": "CWE124",
+   "mechanism": "malloc_wchar_t_cpy",
+   "file_count": 82,
+   "example_file": "CWE124_Buffer_Underwrite__malloc_wchar_t_cpy_01.c"
+  },
+  {
+   "cwe": "CWE124",
+   "mechanism": "malloc_wchar_t_loop",
+   "file_count": 82,
+   "example_file": "CWE124_Buffer_Underwrite__malloc_wchar_t_loop_01.c"
+  },
+  {
+   "cwe": "CWE124",
+   "mechanism": "malloc_wchar_t_memcpy",
+   "file_count": 82,
+   "example_file": "CWE124_Buffer_Underwrite__malloc_wchar_t_memcpy_01.c"
+  },
+  {
+   "cwe": "CWE124",
+   "mechanism": "malloc_wchar_t_memmove",
+   "file_count": 82,
+   "example_file": "CWE124_Buffer_Underwrite__malloc_wchar_t_memmove_01.c"
+  },
+  {
+   "cwe": "CWE124",
+   "mechanism": "malloc_wchar_t_ncpy",
+   "file_count": 82,
+   "example_file": "CWE124_Buffer_Underwrite__malloc_wchar_t_ncpy_01.c"
+  },
+  {
+   "cwe": "CWE124",
+   "mechanism": "new_char_cpy",
+   "file_count": 82,
+   "example_file": "CWE124_Buffer_Underwrite__new_char_cpy_01.cpp"
+  },
+  {
+   "cwe": "CWE124",
+   "mechanism": "new_char_loop",
+   "file_count": 82,
+   "example_file": "CWE124_Buffer_Underwrite__new_char_loop_01.cpp"
+  },
+  {
+   "cwe": "CWE124",
+   "mechanism": "new_char_memcpy",
+   "file_count": 82,
+   "example_file": "CWE124_Buffer_Underwrite__new_char_memcpy_01.cpp"
+  },
+  {
+   "cwe": "CWE124",
+   "mechanism": "new_char_memmove",
+   "file_count": 82,
+   "example_file": "CWE124_Buffer_Underwrite__new_char_memmove_01.cpp"
+  },
+  {
+   "cwe": "CWE124",
+   "mechanism": "new_char_ncpy",
+   "file_count": 82,
+   "example_file": "CWE124_Buffer_Underwrite__new_char_ncpy_01.cpp"
+  },
+  {
+   "cwe": "CWE124",
+   "mechanism": "new_wchar_t_cpy",
+   "file_count": 82,
+   "example_file": "CWE124_Buffer_Underwrite__new_wchar_t_cpy_01.cpp"
+  },
+  {
+   "cwe": "CWE124",
+   "mechanism": "new_wchar_t_loop",
+   "file_count": 82,
+   "example_file": "CWE124_Buffer_Underwrite__new_wchar_t_loop_01.cpp"
+  },
+  {
+   "cwe": "CWE124",
+   "mechanism": "new_wchar_t_memcpy",
+   "file_count": 82,
+   "example_file": "CWE124_Buffer_Underwrite__new_wchar_t_memcpy_01.cpp"
+  },
+  {
+   "cwe": "CWE124",
+   "mechanism": "new_wchar_t_memmove",
+   "file_count": 82,
+   "example_file": "CWE124_Buffer_Underwrite__new_wchar_t_memmove_01.cpp"
+  },
+  {
+   "cwe": "CWE124",
+   "mechanism": "new_wchar_t_ncpy",
+   "file_count": 82,
+   "example_file": "CWE124_Buffer_Underwrite__new_wchar_t_ncpy_01.cpp"
+  },
+  {
+   "cwe": "CWE124",
+   "mechanism": "wchar_t_alloca_cpy",
+   "file_count": 65,
+   "example_file": "CWE124_Buffer_Underwrite__wchar_t_alloca_cpy_01.c"
+  },
+  {
+   "cwe": "CWE124",
+   "mechanism": "wchar_t_alloca_loop",
+   "file_count": 65,
+   "example_file": "CWE124_Buffer_Underwrite__wchar_t_alloca_loop_01.c"
+  },
+  {
+   "cwe": "CWE124",
+   "mechanism": "wchar_t_alloca_memcpy",
+   "file_count": 65,
+   "example_file": "CWE124_Buffer_Underwrite__wchar_t_alloca_memcpy_01.c"
+  },
+  {
+   "cwe": "CWE124",
+   "mechanism": "wchar_t_alloca_memmove",
+   "file_count": 65,
+   "example_file": "CWE124_Buffer_Underwrite__wchar_t_alloca_memmove_01.c"
+  },
+  {
+   "cwe": "CWE124",
+   "mechanism": "wchar_t_alloca_ncpy",
+   "file_count": 65,
+   "example_file": "CWE124_Buffer_Underwrite__wchar_t_alloca_ncpy_01.c"
+  },
+  {
+   "cwe": "CWE124",
+   "mechanism": "wchar_t_declare_cpy",
+   "file_count": 65,
+   "example_file": "CWE124_Buffer_Underwrite__wchar_t_declare_cpy_01.c"
+  },
+  {
+   "cwe": "CWE124",
+   "mechanism": "wchar_t_declare_loop",
+   "file_count": 65,
+   "example_file": "CWE124_Buffer_Underwrite__wchar_t_declare_loop_01.c"
+  },
+  {
+   "cwe": "CWE124",
+   "mechanism": "wchar_t_declare_memcpy",
+   "file_count": 65,
+   "example_file": "CWE124_Buffer_Underwrite__wchar_t_declare_memcpy_01.c"
+  },
+  {
+   "cwe": "CWE124",
+   "mechanism": "wchar_t_declare_memmove",
+   "file_count": 65,
+   "example_file": "CWE124_Buffer_Underwrite__wchar_t_declare_memmove_01.c"
+  },
+  {
+   "cwe": "CWE124",
+   "mechanism": "wchar_t_declare_ncpy",
+   "file_count": 65,
+   "example_file": "CWE124_Buffer_Underwrite__wchar_t_declare_ncpy_01.c"
+  },
+  {
+   "cwe": "CWE126",
+   "mechanism": "CWE129_connect_socket",
+   "file_count": 86,
+   "example_file": "CWE126_Buffer_Overread__CWE129_connect_socket_01.c"
+  },
+  {
+   "cwe": "CWE126",
+   "mechanism": "CWE129_fgets",
+   "file_count": 86,
+   "example_file": "CWE126_Buffer_Overread__CWE129_fgets_01.c"
+  },
+  {
+   "cwe": "CWE126",
+   "mechanism": "CWE129_fscanf",
+   "file_count": 86,
+   "example_file": "CWE126_Buffer_Overread__CWE129_fscanf_01.c"
+  },
+  {
+   "cwe": "CWE126",
+   "mechanism": "CWE129_large",
+   "file_count": 86,
+   "example_file": "CWE126_Buffer_Overread__CWE129_large_01.c"
+  },
+  {
+   "cwe": "CWE126",
+   "mechanism": "CWE129_listen_socket",
+   "file_count": 86,
+   "example_file": "CWE126_Buffer_Overread__CWE129_listen_socket_01.c"
+  },
+  {
+   "cwe": "CWE126",
+   "mechanism": "CWE129_rand",
+   "file_count": 86,
+   "example_file": "CWE126_Buffer_Overread__CWE129_rand_01.c"
+  },
+  {
+   "cwe": "CWE126",
+   "mechanism": "CWE170_char_loop",
+   "file_count": 18,
+   "example_file": "CWE126_Buffer_Overread__CWE170_char_loop_01.c"
+  },
+  {
+   "cwe": "CWE126",
+   "mechanism": "CWE170_char_memcpy",
+   "file_count": 18,
+   "example_file": "CWE126_Buffer_Overread__CWE170_char_memcpy_01.c"
+  },
+  {
+   "cwe": "CWE126",
+   "mechanism": "CWE170_char_strncpy",
+   "file_count": 18,
+   "example_file": "CWE126_Buffer_Overread__CWE170_char_strncpy_01.c"
+  },
+  {
+   "cwe": "CWE126",
+   "mechanism": "CWE170_wchar_t_loop",
+   "file_count": 18,
+   "example_file": "CWE126_Buffer_Overread__CWE170_wchar_t_loop_01.c"
+  },
+  {
+   "cwe": "CWE126",
+   "mechanism": "CWE170_wchar_t_memcpy",
+   "file_count": 18,
+   "example_file": "CWE126_Buffer_Overread__CWE170_wchar_t_memcpy_01.c"
+  },
+  {
+   "cwe": "CWE126",
+   "mechanism": "CWE170_wchar_t_strncpy",
+   "file_count": 18,
+   "example_file": "CWE126_Buffer_Overread__CWE170_wchar_t_strncpy_01.c"
+  },
+  {
+   "cwe": "CWE126",
+   "mechanism": "char_alloca_loop",
+   "file_count": 65,
+   "example_file": "CWE126_Buffer_Overread__char_alloca_loop_01.c"
+  },
+  {
+   "cwe": "CWE126",
+   "mechanism": "char_alloca_memcpy",
+   "file_count": 65,
+   "example_file": "CWE126_Buffer_Overread__char_alloca_memcpy_01.c"
+  },
+  {
+   "cwe": "CWE126",
+   "mechanism": "char_alloca_memmove",
+   "file_count": 65,
+   "example_file": "CWE126_Buffer_Overread__char_alloca_memmove_01.c"
+  },
+  {
+   "cwe": "CWE126",
+   "mechanism": "char_declare_loop",
+   "file_count": 65,
+   "example_file": "CWE126_Buffer_Overread__char_declare_loop_01.c"
+  },
+  {
+   "cwe": "CWE126",
+   "mechanism": "char_declare_memcpy",
+   "file_count": 65,
+   "example_file": "CWE126_Buffer_Overread__char_declare_memcpy_01.c"
+  },
+  {
+   "cwe": "CWE126",
+   "mechanism": "char_declare_memmove",
+   "file_count": 65,
+   "example_file": "CWE126_Buffer_Overread__char_declare_memmove_01.c"
+  },
+  {
+   "cwe": "CWE126",
+   "mechanism": "malloc_char_loop",
+   "file_count": 82,
+   "example_file": "CWE126_Buffer_Overread__malloc_char_loop_01.c"
+  },
+  {
+   "cwe": "CWE126",
+   "mechanism": "malloc_char_memcpy",
+   "file_count": 82,
+   "example_file": "CWE126_Buffer_Overread__malloc_char_memcpy_01.c"
+  },
+  {
+   "cwe": "CWE126",
+   "mechanism": "malloc_char_memmove",
+   "file_count": 82,
+   "example_file": "CWE126_Buffer_Overread__malloc_char_memmove_01.c"
+  },
+  {
+   "cwe": "CWE126",
+   "mechanism": "malloc_wchar_t_loop",
+   "file_count": 82,
+   "example_file": "CWE126_Buffer_Overread__malloc_wchar_t_loop_01.c"
+  },
+  {
+   "cwe": "CWE126",
+   "mechanism": "malloc_wchar_t_memcpy",
+   "file_count": 82,
+   "example_file": "CWE126_Buffer_Overread__malloc_wchar_t_memcpy_01.c"
+  },
+  {
+   "cwe": "CWE126",
+   "mechanism": "malloc_wchar_t_memmove",
+   "file_count": 82,
+   "example_file": "CWE126_Buffer_Overread__malloc_wchar_t_memmove_01.c"
+  },
+  {
+   "cwe": "CWE126",
+   "mechanism": "new_char_loop",
+   "file_count": 82,
+   "example_file": "CWE126_Buffer_Overread__new_char_loop_01.cpp"
+  },
+  {
+   "cwe": "CWE126",
+   "mechanism": "new_char_memcpy",
+   "file_count": 82,
+   "example_file": "CWE126_Buffer_Overread__new_char_memcpy_01.cpp"
+  },
+  {
+   "cwe": "CWE126",
+   "mechanism": "new_char_memmove",
+   "file_count": 82,
+   "example_file": "CWE126_Buffer_Overread__new_char_memmove_01.cpp"
+  },
+  {
+   "cwe": "CWE126",
+   "mechanism": "new_wchar_t_loop",
+   "file_count": 82,
+   "example_file": "CWE126_Buffer_Overread__new_wchar_t_loop_01.cpp"
+  },
+  {
+   "cwe": "CWE126",
+   "mechanism": "new_wchar_t_memcpy",
+   "file_count": 82,
+   "example_file": "CWE126_Buffer_Overread__new_wchar_t_memcpy_01.cpp"
+  },
+  {
+   "cwe": "CWE126",
+   "mechanism": "new_wchar_t_memmove",
+   "file_count": 82,
+   "example_file": "CWE126_Buffer_Overread__new_wchar_t_memmove_01.cpp"
+  },
+  {
+   "cwe": "CWE126",
+   "mechanism": "wchar_t_alloca_loop",
+   "file_count": 65,
+   "example_file": "CWE126_Buffer_Overread__wchar_t_alloca_loop_01.c"
+  },
+  {
+   "cwe": "CWE126",
+   "mechanism": "wchar_t_alloca_memcpy",
+   "file_count": 65,
+   "example_file": "CWE126_Buffer_Overread__wchar_t_alloca_memcpy_01.c"
+  },
+  {
+   "cwe": "CWE126",
+   "mechanism": "wchar_t_alloca_memmove",
+   "file_count": 65,
+   "example_file": "CWE126_Buffer_Overread__wchar_t_alloca_memmove_01.c"
+  },
+  {
+   "cwe": "CWE126",
+   "mechanism": "wchar_t_declare_loop",
+   "file_count": 65,
+   "example_file": "CWE126_Buffer_Overread__wchar_t_declare_loop_01.c"
+  },
+  {
+   "cwe": "CWE126",
+   "mechanism": "wchar_t_declare_memcpy",
+   "file_count": 65,
+   "example_file": "CWE126_Buffer_Overread__wchar_t_declare_memcpy_01.c"
+  },
+  {
+   "cwe": "CWE126",
+   "mechanism": "wchar_t_declare_memmove",
+   "file_count": 65,
+   "example_file": "CWE126_Buffer_Overread__wchar_t_declare_memmove_01.c"
+  },
+  {
+   "cwe": "CWE127",
+   "mechanism": "CWE839_connect_socket",
+   "file_count": 86,
+   "example_file": "CWE127_Buffer_Underread__CWE839_connect_socket_01.c"
+  },
+  {
+   "cwe": "CWE127",
+   "mechanism": "CWE839_fgets",
+   "file_count": 86,
+   "example_file": "CWE127_Buffer_Underread__CWE839_fgets_01.c"
+  },
+  {
+   "cwe": "CWE127",
+   "mechanism": "CWE839_fscanf",
+   "file_count": 86,
+   "example_file": "CWE127_Buffer_Underread__CWE839_fscanf_01.c"
+  },
+  {
+   "cwe": "CWE127",
+   "mechanism": "CWE839_listen_socket",
+   "file_count": 86,
+   "example_file": "CWE127_Buffer_Underread__CWE839_listen_socket_01.c"
+  },
+  {
+   "cwe": "CWE127",
+   "mechanism": "CWE839_negative",
+   "file_count": 86,
+   "example_file": "CWE127_Buffer_Underread__CWE839_negative_01.c"
+  },
+  {
+   "cwe": "CWE127",
+   "mechanism": "CWE839_rand",
+   "file_count": 86,
+   "example_file": "CWE127_Buffer_Underread__CWE839_rand_01.c"
+  },
+  {
+   "cwe": "CWE127",
+   "mechanism": "char_alloca_cpy",
+   "file_count": 65,
+   "example_file": "CWE127_Buffer_Underread__char_alloca_cpy_01.c"
+  },
+  {
+   "cwe": "CWE127",
+   "mechanism": "char_alloca_loop",
+   "file_count": 65,
+   "example_file": "CWE127_Buffer_Underread__char_alloca_loop_01.c"
+  },
+  {
+   "cwe": "CWE127",
+   "mechanism": "char_alloca_memcpy",
+   "file_count": 65,
+   "example_file": "CWE127_Buffer_Underread__char_alloca_memcpy_01.c"
+  },
+  {
+   "cwe": "CWE127",
+   "mechanism": "char_alloca_memmove",
+   "file_count": 65,
+   "example_file": "CWE127_Buffer_Underread__char_alloca_memmove_01.c"
+  },
+  {
+   "cwe": "CWE127",
+   "mechanism": "char_alloca_ncpy",
+   "file_count": 65,
+   "example_file": "CWE127_Buffer_Underread__char_alloca_ncpy_01.c"
+  },
+  {
+   "cwe": "CWE127",
+   "mechanism": "char_declare_cpy",
+   "file_count": 65,
+   "example_file": "CWE127_Buffer_Underread__char_declare_cpy_01.c"
+  },
+  {
+   "cwe": "CWE127",
+   "mechanism": "char_declare_loop",
+   "file_count": 65,
+   "example_file": "CWE127_Buffer_Underread__char_declare_loop_01.c"
+  },
+  {
+   "cwe": "CWE127",
+   "mechanism": "char_declare_memcpy",
+   "file_count": 65,
+   "example_file": "CWE127_Buffer_Underread__char_declare_memcpy_01.c"
+  },
+  {
+   "cwe": "CWE127",
+   "mechanism": "char_declare_memmove",
+   "file_count": 65,
+   "example_file": "CWE127_Buffer_Underread__char_declare_memmove_01.c"
+  },
+  {
+   "cwe": "CWE127",
+   "mechanism": "char_declare_ncpy",
+   "file_count": 65,
+   "example_file": "CWE127_Buffer_Underread__char_declare_ncpy_01.c"
+  },
+  {
+   "cwe": "CWE127",
+   "mechanism": "malloc_char_cpy",
+   "file_count": 82,
+   "example_file": "CWE127_Buffer_Underread__malloc_char_cpy_01.c"
+  },
+  {
+   "cwe": "CWE127",
+   "mechanism": "malloc_char_loop",
+   "file_count": 82,
+   "example_file": "CWE127_Buffer_Underread__malloc_char_loop_01.c"
+  },
+  {
+   "cwe": "CWE127",
+   "mechanism": "malloc_char_memcpy",
+   "file_count": 82,
+   "example_file": "CWE127_Buffer_Underread__malloc_char_memcpy_01.c"
+  },
+  {
+   "cwe": "CWE127",
+   "mechanism": "malloc_char_memmove",
+   "file_count": 82,
+   "example_file": "CWE127_Buffer_Underread__malloc_char_memmove_01.c"
+  },
+  {
+   "cwe": "CWE127",
+   "mechanism": "malloc_char_ncpy",
+   "file_count": 82,
+   "example_file": "CWE127_Buffer_Underread__malloc_char_ncpy_01.c"
+  },
+  {
+   "cwe": "CWE127",
+   "mechanism": "malloc_wchar_t_cpy",
+   "file_count": 82,
+   "example_file": "CWE127_Buffer_Underread__malloc_wchar_t_cpy_01.c"
+  },
+  {
+   "cwe": "CWE127",
+   "mechanism": "malloc_wchar_t_loop",
+   "file_count": 82,
+   "example_file": "CWE127_Buffer_Underread__malloc_wchar_t_loop_01.c"
+  },
+  {
+   "cwe": "CWE127",
+   "mechanism": "malloc_wchar_t_memcpy",
+   "file_count": 82,
+   "example_file": "CWE127_Buffer_Underread__malloc_wchar_t_memcpy_01.c"
+  },
+  {
+   "cwe": "CWE127",
+   "mechanism": "malloc_wchar_t_memmove",
+   "file_count": 82,
+   "example_file": "CWE127_Buffer_Underread__malloc_wchar_t_memmove_01.c"
+  },
+  {
+   "cwe": "CWE127",
+   "mechanism": "malloc_wchar_t_ncpy",
+   "file_count": 82,
+   "example_file": "CWE127_Buffer_Underread__malloc_wchar_t_ncpy_01.c"
+  },
+  {
+   "cwe": "CWE127",
+   "mechanism": "new_char_cpy",
+   "file_count": 82,
+   "example_file": "CWE127_Buffer_Underread__new_char_cpy_01.cpp"
+  },
+  {
+   "cwe": "CWE127",
+   "mechanism": "new_char_loop",
+   "file_count": 82,
+   "example_file": "CWE127_Buffer_Underread__new_char_loop_01.cpp"
+  },
+  {
+   "cwe": "CWE127",
+   "mechanism": "new_char_memcpy",
+   "file_count": 82,
+   "example_file": "CWE127_Buffer_Underread__new_char_memcpy_01.cpp"
+  },
+  {
+   "cwe": "CWE127",
+   "mechanism": "new_char_memmove",
+   "file_count": 82,
+   "example_file": "CWE127_Buffer_Underread__new_char_memmove_01.cpp"
+  },
+  {
+   "cwe": "CWE127",
+   "mechanism": "new_char_ncpy",
+   "file_count": 82,
+   "example_file": "CWE127_Buffer_Underread__new_char_ncpy_01.cpp"
+  },
+  {
+   "cwe": "CWE127",
+   "mechanism": "new_wchar_t_cpy",
+   "file_count": 82,
+   "example_file": "CWE127_Buffer_Underread__new_wchar_t_cpy_01.cpp"
+  },
+  {
+   "cwe": "CWE127",
+   "mechanism": "new_wchar_t_loop",
+   "file_count": 82,
+   "example_file": "CWE127_Buffer_Underread__new_wchar_t_loop_01.cpp"
+  },
+  {
+   "cwe": "CWE127",
+   "mechanism": "new_wchar_t_memcpy",
+   "file_count": 82,
+   "example_file": "CWE127_Buffer_Underread__new_wchar_t_memcpy_01.cpp"
+  },
+  {
+   "cwe": "CWE127",
+   "mechanism": "new_wchar_t_memmove",
+   "file_count": 82,
+   "example_file": "CWE127_Buffer_Underread__new_wchar_t_memmove_01.cpp"
+  },
+  {
+   "cwe": "CWE127",
+   "mechanism": "new_wchar_t_ncpy",
+   "file_count": 82,
+   "example_file": "CWE127_Buffer_Underread__new_wchar_t_ncpy_01.cpp"
+  },
+  {
+   "cwe": "CWE127",
+   "mechanism": "wchar_t_alloca_cpy",
+   "file_count": 65,
+   "example_file": "CWE127_Buffer_Underread__wchar_t_alloca_cpy_01.c"
+  },
+  {
+   "cwe": "CWE127",
+   "mechanism": "wchar_t_alloca_loop",
+   "file_count": 65,
+   "example_file": "CWE127_Buffer_Underread__wchar_t_alloca_loop_01.c"
+  },
+  {
+   "cwe": "CWE127",
+   "mechanism": "wchar_t_alloca_memcpy",
+   "file_count": 65,
+   "example_file": "CWE127_Buffer_Underread__wchar_t_alloca_memcpy_01.c"
+  },
+  {
+   "cwe": "CWE127",
+   "mechanism": "wchar_t_alloca_memmove",
+   "file_count": 65,
+   "example_file": "CWE127_Buffer_Underread__wchar_t_alloca_memmove_01.c"
+  },
+  {
+   "cwe": "CWE127",
+   "mechanism": "wchar_t_alloca_ncpy",
+   "file_count": 65,
+   "example_file": "CWE127_Buffer_Underread__wchar_t_alloca_ncpy_01.c"
+  },
+  {
+   "cwe": "CWE127",
+   "mechanism": "wchar_t_declare_cpy",
+   "file_count": 65,
+   "example_file": "CWE127_Buffer_Underread__wchar_t_declare_cpy_01.c"
+  },
+  {
+   "cwe": "CWE127",
+   "mechanism": "wchar_t_declare_loop",
+   "file_count": 65,
+   "example_file": "CWE127_Buffer_Underread__wchar_t_declare_loop_01.c"
+  },
+  {
+   "cwe": "CWE127",
+   "mechanism": "wchar_t_declare_memcpy",
+   "file_count": 65,
+   "example_file": "CWE127_Buffer_Underread__wchar_t_declare_memcpy_01.c"
+  },
+  {
+   "cwe": "CWE127",
+   "mechanism": "wchar_t_declare_memmove",
+   "file_count": 65,
+   "example_file": "CWE127_Buffer_Underread__wchar_t_declare_memmove_01.c"
+  },
+  {
+   "cwe": "CWE127",
+   "mechanism": "wchar_t_declare_ncpy",
+   "file_count": 65,
+   "example_file": "CWE127_Buffer_Underread__wchar_t_declare_ncpy_01.c"
+  }
+ ]
+}

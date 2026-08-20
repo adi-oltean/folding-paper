@@ -1,0 +1,6 @@
+out/
+*.o
+equiv_case1
+equiv_case2
+equiv_case3
+equiv_case_neg

@@ -1,0 +1,95 @@
+====================================================================================================
+E3 -- A SECURITY-BUG DATABASE AS A TRAINING SET
+reproduce with:  python3 eval/train/train.py   (deterministic; no clock, no network)
+====================================================================================================
+
+PART 1  Shape classification -- NIST SARD Juliet Test Suite for C/C++ v1.3 (CWE-121/122/124/126/127 subset)
+        commit f88433e34436 (2025-03-27), 372 mechanisms / 27593 files censused
+
+  bucket                       mechanisms   % mech     files    % files
+  ---------------------------------------------------------------------
+  constant_size_mismatch       256          68.8       19070    69.1
+  loop_stride1_exact           64           17.2       4661     16.9
+  tainted_or_unchecked_scalar  36           9.7        3096     11.2
+  sizeof_multiplier            13           3.5        562      2.0
+  cpp_only_out_of_ir_scope     3            0.8        204      0.7
+
+  FOLDING-SHAPED (stride>1 induction / bijective-bit encoding / cross-variable
+  relation that a plain interval domain loses and a fold recovers): 0/372 mechanisms (0.0%), 0/27593 files (0.0%)
+
+PART 2  Fallback training corpus (Juliet supplied 0 folding-shaped cases -- see PART 1)
+        16 train pairs (examples.EXAMPLES, unchanged) + 6 held-out test pairs (same shape, different params, via _p1/_p13/_p16, unchanged) = 22 bad()/good() pairs total
+
+TABLE 1  Learning curve (train split, 16 pairs)
+
+                                             witness rate   FP rate      bad-proved-safe
+  --------------------------------------------------------------------------------------
+  iteration 0 (catalogue minus (1, 13, 16))  1.000          0.188        0  [must be 0]
+  iteration 1 (after learning [1, 13, 16])   1.000          0.000        0  [must be 0]
+
+TABLE 2  Proposals (recorded BEFORE verification, per the design's discipline)
+
+  shape 1    proposed fact: {'body': [('le', 'i', 18)]}
+             params used to derive it (generic, not memorized): {'s': 2, 'N': 20, 'c0': 0}
+             VERIFIED (sound on every train case of this shape, resolves the miss, never proves bad() safe): True
+             -> ADDED to fold_set, keyed by shape 1
+
+  shape 13   proposed fact: {'chk': [('in', 'z', 0, 254)]}
+             params used to derive it (generic, not memorized): {'k': 8}
+             VERIFIED (sound on every train case of this shape, resolves the miss, never proves bad() safe): True
+             -> ADDED to fold_set, keyed by shape 13
+
+  shape 16   proposed fact: {'body': [('subst', 'p', 1, 'i', 0)]}
+             params used to derive it (generic, not memorized): {'n': 8, 'base': 0, 's': 1}
+             VERIFIED (sound on every train case of this shape, resolves the miss, never proves bad() safe): True
+             -> ADDED to fold_set, keyed by shape 16
+
+TABLE 3  Generalization -- the SAME learned (parametric) fold_set on 6 held-out, different-parameter, same-shape TEST cases
+
+  witness rate (test): 1.000    FP rate (test): 0.000    bad-proved-safe (test): 0  [must be 0]
+    shape 1   {'s': 3, 'N': 21, 'c0': 0}   good=PROVEN   mut=FAIL     witness=True  fp=False sound=True
+    shape 1   {'s': 6, 'N': 42, 'c0': 0}   good=PROVEN   mut=FAIL     witness=True  fp=False sound=True
+    shape 13  {'k': 4}                     good=PROVEN   mut=FAIL     witness=True  fp=False sound=True
+    shape 13  {'k': 6}                     good=PROVEN   mut=FAIL     witness=True  fp=False sound=True
+    shape 16  {'n': 5, 'base': 0, 's': 1}  good=PROVEN   mut=FAIL     witness=True  fp=False sound=True
+    shape 16  {'n': 6, 'base': 2, 's': 3}  good=PROVEN   mut=FAIL     witness=True  fp=False sound=True
+
+TABLE 4  Overfitting illustration -- a NON-parametric ("memorized") proposal
+
+  training instance:  {'s': 2, 'N': 20, 'c0': 0}  (actual_max=18)
+  literal proposal:   {'body': [('le', 'i', 18)]}   (numerically identical to the parametric fold on THIS
+                             instance, but hard-coded, not a function of s/N/c0)
+  verified on its own training instance: True
+  a DIFFERENT-parameter same-shape instance: {'s': 6, 'N': 42, 'c0': 0}  (true actual_max=36, != the literal 18)
+  literal proposal re-verified on the DIFFERENT instance: False
+  parametric proposal ({'body': [('le', 'i', 36)]}) on the SAME different instance: True
+
+  Reading this: the literal fact is REJECTED by the mechanical verifier on the
+  different instance (a soundness violation -- it would have clipped away genuinely
+  reachable states), so it is never added to fold_set for that case; the analyzer
+  simply falls back to baseline (no fold) there.  This is the "cannot overfit into
+  unsoundness" claim, exhibited: a non-generalizing proposal costs a wasted
+  verification attempt, never a false safety proof.  The parametric fact -- the one
+  the training loop actually learns and caches -- verifies on both.
+
+HONEST HEADLINE
+
+  of 372 Juliet CWE-121/122/124/126/127 mechanisms sampled (27593 files), 0 are folding-shaped in the paper's technical sense;
+  training therefore has no real target in this corpus slice, and that null result
+  is reported as-is, not routed around.  The training LOOP mechanics (propose,
+  record-before-verify, mechanically verify, cache by shape, generalize, guardrail)
+  are demonstrated instead on the design doc's sanctioned fallback -- the 16 E0
+  catalogue patterns plus 6 held-out same-shape variants -- where training drove the
+  false-positive rate on the 3 not-yet-learned shapes from 0.188 to 0.000 (train split)
+  and 0.000 on the held-out test split, with witness rate at 1.000 throughout (Concrete
+  brute-force-enumerates every corpus program here, independent of fold_set -- a
+  property of these small IR programs, not a claim about real code) and
+  bad()-proved-safe at 0 in every iteration and on the test split, i.e. the
+  guardrail held throughout.
+
+All harness expectations held: guardrail (bad-proved-safe) at 0 in every
+iteration and on the test split; every learned fold verified sound (cross-
+checked against Concrete) before being cached; the parametric folds generalized
+to held-out same-shape test cases; the overfitting demo's literal fact was
+correctly rejected by the verifier on a different-parameter instance.
+
